@@ -1,0 +1,16 @@
+  # Write a recursive function to find the nth Fibonacci number.
+
+
+def recursive_fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2)
+user_num = int(input("Enter the position (n) to find the Fibonacci number: "))
+if user_num < 0:
+    print("Please enter a non-negative integer.")
+else:
+    result = recursive_fibonacci(user_num)
+    print(f"The Fibonacci number at position {user_num} is: {result}")

@@ -1,0 +1,12 @@
+  # Write a recursive function to calculate the sum of digits of a number.Example: Input = 123 → Output = 6
+
+
+def recursive_digit_sum(n):
+    n = abs(n)
+    if n < 10:
+        return n
+    else:
+        return (n % 10) + recursive_digit_sum(n // 10)
+user_num = int(input("Enter a number: "))
+result = recursive_digit_sum(user_num)
+print(f"The sum of the digits of {user_num} is: {result}")

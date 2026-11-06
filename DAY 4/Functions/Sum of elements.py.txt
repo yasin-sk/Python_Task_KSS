@@ -1,0 +1,12 @@
+  # . Write a function to find the sum of elements in a list using a user-defined function.
+
+
+def calculate_list_sum(numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+my_list = [10, 20, 30, 40, 50]
+list_sum = calculate_list_sum(my_list)
+print("The list of numbers is:", my_list)
+print("The sum of all elements in the list is:", list_sum)

@@ -1,0 +1,11 @@
+  # Write a recursive function to reverse a string.
+
+
+def recursive_reverse(s):
+    if len(s) <= 1:
+        return s
+    else:
+        return s[-1] + recursive_reverse(s[:-1])
+user_string = input("Enter a string: ")
+result = recursive_reverse(user_string)
+print("Reversed string:", result)

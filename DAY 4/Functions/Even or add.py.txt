@@ -1,0 +1,11 @@
+  # . Write a function to check whether a number is even or odd.
+
+
+def check_even_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+user_num = int(input("Enter a whole number: "))
+result = check_even_odd(user_num)
+print(f"The number {user_num} is {result}.")

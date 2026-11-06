@@ -1,0 +1,14 @@
+  # Write a function that returns the factorial of a number.
+
+
+def get_factorial(number):
+    if number == 0 or number == 1:
+        return 1
+    else:
+        return number * get_factorial(number - 1)
+user_num = int(input("Enter a positive whole number: "))
+if user_num < 0:
+    print("Factorial does not exist for negative numbers.")
+else:
+    result = get_factorial(user_num)
+    print(f"The factorial of {user_num} is: {result}")

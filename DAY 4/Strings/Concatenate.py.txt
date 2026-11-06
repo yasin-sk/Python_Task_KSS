@@ -1,0 +1,7 @@
+  # Write a program to concatenate two strings.
+
+
+a = input("Enter the first string: ")
+b = input("Enter the second string: ")
+concatenate = a+b
+print(concatenate)

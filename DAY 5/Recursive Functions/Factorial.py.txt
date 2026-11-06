@@ -1,0 +1,14 @@
+  # Write a recursive function to calculate the factorial of a number
+
+
+def recursive_factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * recursive_factorial(n - 1)
+user_num = int(input("Enter a positive whole number: "))
+if user_num < 0:
+    print("Factorial does not exist for negative numbers.")
+else:
+    result = recursive_factorial(user_num)
+    print(f"The factorial of {user_num} is: {result}")

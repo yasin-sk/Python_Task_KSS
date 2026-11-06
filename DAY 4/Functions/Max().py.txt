@@ -1,0 +1,7 @@
+  # . Write a program using the built-in max() function to find the largest number in a list
+
+
+numbers_list = [23, 89, 45, 12, 76, 92, 4]
+largest_number = max(numbers_list)
+print("The list of numbers is:", numbers_list)
+print("The largest number in the list is:", largest_number)
