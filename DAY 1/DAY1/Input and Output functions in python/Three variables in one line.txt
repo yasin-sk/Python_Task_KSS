@@ -1,0 +1,9 @@
+     # Create three variables and print them in one line. 
+
+
+
+
+ a = "Apple"
+b = "Banana"
+c = "Cherry"
+print(a,b,c)

@@ -1,0 +1,14 @@
+   #  Swap the values of two variables.
+
+
+
+a = 5
+b = 10
+a, b = b, a
+print(f"After swap: a = {a}, b = {b}")
+
+
+
+
+
+   

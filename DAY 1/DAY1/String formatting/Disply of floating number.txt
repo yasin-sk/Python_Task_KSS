@@ -1,0 +1,6 @@
+    # Display a floating number with 2 decimal places. 
+
+
+
+pi_value = 3.14159265
+print(f"The formatted value of pi is {pi_value:.2f}")

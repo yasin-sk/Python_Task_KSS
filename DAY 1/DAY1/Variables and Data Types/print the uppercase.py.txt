@@ -1,0 +1,8 @@
+ #     Take a sentence as input and print it in uppercase.
+
+
+
+
+   a=input("enter sentence:")
+   uppercase_sentance=a.upper()
+   print(uppercase_sentance)

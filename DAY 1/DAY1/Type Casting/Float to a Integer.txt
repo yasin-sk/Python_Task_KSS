@@ -1,0 +1,12 @@
+. #  Convert a float to an integer. 
+
+
+
+
+float_number = 42.79
+integer_number = int(float_number)
+print(integer_number)
+
+
+
+

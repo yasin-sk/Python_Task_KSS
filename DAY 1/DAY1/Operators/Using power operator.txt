@@ -1,0 +1,11 @@
+      # Calculate the power of a number using `**`.
+
+
+
+
+
+
+a = int(input("Enter the number: "))
+b = int(input("Enter the numbr: ")) 
+result = a ** b
+print(result)

@@ -1,0 +1,10 @@
+    #  Write a program to perform left shift (<<) and right shift (>>) operations on a number.
+
+
+num = int(input("Enter the base number: "))
+shift_bits = int(input("Enter how many bits to shift: "))
+left_shift_result = num << shift_bits
+right_shift_result = num >> shift_bits
+print(f"\n--- Left Shift (<<) ---")
+print(f"\n--- Right Shift (>>) ---")
+

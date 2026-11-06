@@ -1,0 +1,10 @@
+  #  Add two numbers taken as strings by converting them to integers.
+
+
+
+
+
+num1 = "40"
+num2 = "2"
+sum = int(num1)+int(num2)
+print("the total sum is:",sum)

@@ -1,0 +1,8 @@
+    #  Print a table row using formatted strings
+
+
+
+item = "Laptop"
+quantity = 3
+price = 45000.50
+print(f"| {item:<15} | {quantity:>10} | {price:>12,.2f} |")

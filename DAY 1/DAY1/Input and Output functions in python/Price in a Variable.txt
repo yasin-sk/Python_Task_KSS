@@ -1,0 +1,9 @@
+    #  Store a price in a variable and add tax to it. 
+
+
+
+price = 500.00
+tax_rate = 0.18
+tax_amount = price * tax_rate
+total_price = price + tax_amount
+print(f"Total Price: ₹{total_price:.2f}")

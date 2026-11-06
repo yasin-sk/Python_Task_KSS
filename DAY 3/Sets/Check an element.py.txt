@@ -1,0 +1,9 @@
+   # Write a program to check if an element exists in a set
+
+
+set = {10, 20, 30, 40}
+target = 20
+if target in set:
+    print(f"Yes, {target} exists in the set.")
+else:
+    print(f"No, {target} does not exist in the set.")

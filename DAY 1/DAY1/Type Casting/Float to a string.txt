@@ -1,0 +1,8 @@
+   #  . Convert a float to a string and print it.
+
+
+
+
+value = 3.141
+string = str(value)
+print("The value of Pi is "+string)

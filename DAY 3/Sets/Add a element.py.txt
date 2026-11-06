@@ -1,0 +1,6 @@
+   # Write a program to add an element to a set
+
+
+set = {10, 20, 30}
+set.add(40)
+print(set)

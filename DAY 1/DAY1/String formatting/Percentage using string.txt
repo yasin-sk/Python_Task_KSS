@@ -1,0 +1,6 @@
+    #  Display a percentage using string formatting.
+
+
+
+percentage_value = 0.756
+print(f"The success rate is {percentage_value:.2%}")

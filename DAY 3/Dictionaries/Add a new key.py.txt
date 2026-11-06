@@ -1,0 +1,10 @@
+   # Write a program to add a new key-value pair to a dictionary.
+
+
+student_marks = {
+    "Rahul": 85,
+    "Ananya": 92,
+    "Vikram": 78
+}
+student_marks["Priya"] = 95
+print(student_marks)

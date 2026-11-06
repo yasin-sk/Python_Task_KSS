@@ -1,0 +1,6 @@
+     # Print a formatted price value.
+
+
+
+price = 12450.758
+print(f"The total price is Rs. {price:.2f}")

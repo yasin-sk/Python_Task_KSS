@@ -1,0 +1,8 @@
+    # . Align text using formatting. 
+
+
+
+text = "Python"
+print(f"Left aligned:   |{text:<15}|")
+print(f"Right aligned:  |{text:>15}|")
+print(f"Center aligned: |{text:^15}|")

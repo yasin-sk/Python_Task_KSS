@@ -1,0 +1,8 @@
+    # Use **f-strings** to print a sentence with variables. 
+
+
+
+
+item = "laptop"
+price = 45000
+print(f"The price of the {item} is Rs. {price}.")

@@ -1,0 +1,8 @@
+     # Create variables for length and width and calculate the area of a rectangle
+
+
+
+ lenght = 12.5
+width = 4.0
+area=lenght*width
+print("The area of ectangle is:",area)

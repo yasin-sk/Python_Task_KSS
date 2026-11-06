@@ -1,0 +1,9 @@
+   # Create a dictionary with 3 student names and their marks.
+
+
+student_marks = {
+    "Rahul": 85,
+    "Ananya": 92,
+    "Vikram": 78
+}
+print(student_marks)

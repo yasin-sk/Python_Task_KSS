@@ -1,0 +1,7 @@
+    #  Create a sentence using two variables with formatting.
+
+
+
+city = "Hyderabad"
+temperature = 28.5
+print(f"The current temperature in {city} is {temperature}°C.")

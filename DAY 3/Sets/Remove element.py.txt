@@ -1,0 +1,6 @@
+   # Write a program to remove an element from a set
+
+
+set = {10, 20, 30, 40}
+set.remove(30)
+print(set)

@@ -1,0 +1,8 @@
+     #  Evaluate an expression with variables
+
+
+
+x = 5.0
+y = 3.0
+result = 2 * (x ** 2) + 4 * y - 7
+print(result)

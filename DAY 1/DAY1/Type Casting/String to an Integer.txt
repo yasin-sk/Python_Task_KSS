@@ -1,0 +1,7 @@
+#   . Convert a string `"123"` to an integer. 
+
+
+
+string = "123"
+integer = int(string)
+print(integer)

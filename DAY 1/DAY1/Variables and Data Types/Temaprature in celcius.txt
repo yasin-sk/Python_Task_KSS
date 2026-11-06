@@ -1,0 +1,8 @@
+. Ask the user for a temperature in Celsius and print it. 
+
+
+
+
+
+a=int(input("Enter temparature in celcius: "))
+print(f"The temperature is {a}°C",)

@@ -1,0 +1,8 @@
+  #  Convert an integer to a string and print it with text. 
+
+
+
+
+age = 25
+string = str(age)
+print("My current age is ",string)

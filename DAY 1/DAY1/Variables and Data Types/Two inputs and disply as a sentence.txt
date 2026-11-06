@@ -1,0 +1,7 @@
+   #    Take two inputs (name and age) and display them in sentence
+
+
+
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+print(f"Name {name} and  Age is  {age}")

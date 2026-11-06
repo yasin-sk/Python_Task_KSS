@@ -1,0 +1,10 @@
+   # Write a program to update the value of an existing key
+
+
+student_marks = {
+    "Rahul": 85,
+    "Ananya": 92,
+    "Vikram": 78
+}
+student_marks["Rahul"] = 90
+print(student_marks)

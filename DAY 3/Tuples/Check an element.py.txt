@@ -1,0 +1,9 @@
+     # Write a program to check whether an element exists in a tuple.
+
+
+tuple = ("apple", "banana", "cherry", "orange")
+target = "cherry"
+if target in tuple:
+    print(f"Yes, '{target}' exists in the tuple.")
+else:
+    print(f"No, '{target}' does not exist in the tuple.")

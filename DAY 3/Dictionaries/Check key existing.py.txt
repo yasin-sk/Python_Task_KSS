@@ -1,0 +1,13 @@
+   # Write a program to check whether a key exists in a dictionary
+
+
+student_marks = {
+    "Rahul": 85,
+    "Ananya": 92,
+    "Vikram": 78
+}
+target_key = "Ananya"
+if target_key in student_marks:
+    print(f"Yes, key '{target_key}' exists in the dictionary.")
+else:
+    print(f"No, key '{target_key}' does not exist in the dictionary.")

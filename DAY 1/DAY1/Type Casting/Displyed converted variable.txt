@@ -1,0 +1,7 @@
+    # Write a program to display the type of converted variables
+
+
+
+original_value = "100"
+converted_value = int(original_value)
+print(converted_value)

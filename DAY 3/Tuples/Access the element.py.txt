@@ -1,0 +1,7 @@
+    # Write a program to access the second element in a tuple.
+
+
+
+tuple = ("apple", "banana", "cherry", "orange")
+second_element = tuple[1]
+print(second_element)

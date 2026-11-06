@@ -1,0 +1,7 @@
+    #  Print a name and age using string formatting.
+
+
+
+name = "Amit"
+age = 24
+print(f"Hello, my name is {name} and I am {age} years old.")

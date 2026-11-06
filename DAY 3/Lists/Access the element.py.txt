@@ -1,0 +1,9 @@
+    # Write a program to access the third element in a list.
+
+
+
+
+
+colors = ["red", "blue", "green", "yellow", "purple"]
+third_element = colors[2]
+print(f"The third element in the list is: {third_element}")

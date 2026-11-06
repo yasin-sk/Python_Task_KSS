@@ -1,0 +1,8 @@
+    #  Write a program to find the length of a list.
+
+
+
+
+my_list = [10, 25, 47, 82, 99, 14, 33]
+list_length = len(my_list)
+print(f"The length of the list is: {list_length}")

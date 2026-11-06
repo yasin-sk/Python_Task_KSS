@@ -1,0 +1,10 @@
+   # Write a program to print all keys of a dictionary
+
+
+student_marks = {
+    "Rahul": 85,
+    "Ananya": 92,
+    "Vikram": 78
+}
+for name in student_marks.keys():
+    print(name)

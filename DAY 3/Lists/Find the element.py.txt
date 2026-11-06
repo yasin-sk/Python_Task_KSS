@@ -1,0 +1,9 @@
+   #  Write a program to find the largest and smallest element in a list.
+
+
+
+n = [45, 12, 89, 7, 63, 21, 54]
+largest = max(n)
+smallest = min(n)
+print(f"The largest element is: {largest}")
+print(f"The smallest element is: {smallest}")
