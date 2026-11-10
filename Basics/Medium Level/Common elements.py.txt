@@ -1,0 +1,24 @@
+  # python
+list1=[1,2,3,4,5]
+list2=[3,4,5,6,7]
+>find
+1.common elements
+2.elements present only in the first list
+3.all unique elements from both lists
+
+
+
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+set1 = set(list1)
+set2 = set(list2)
+# 1. Common elements (Intersection)
+common = list(set1.intersection(set2))
+# 2. Elements present only in the first list (Difference)
+only_in_first = list(set1.difference(set2))
+# 3. All unique elements from both lists (Union)
+all_unique = list(set1.union(set2))
+print("> Common elements:", common)
+print("> Elements only in the first list:", only_in_first)
+print("> All unique elements from both lists:", all_unique)

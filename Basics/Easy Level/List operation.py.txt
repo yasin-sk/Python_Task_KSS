@@ -1,0 +1,10 @@
+  # Give a list of numbers [10,20,30,40,50] write a programme to 
+> add 60 to th list,
+> remove 30,
+> print the list.
+
+
+numbers = [10, 20, 30, 40, 50]
+numbers.append(60)
+numbers.remove(30)
+print(numbers)

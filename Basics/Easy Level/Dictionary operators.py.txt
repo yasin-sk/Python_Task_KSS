@@ -1,0 +1,13 @@
+  # Create a dictionary containing student names an dmarks add a new student update anexsisting student marks and print all student details.
+
+
+students = {
+    "Rahul": 85,
+    "Anjali": 92,
+    "Vikram": 78
+}
+students["Sneha"] = 95
+students["Vikram"] = 82
+print("Student Details:")
+for name, marks in students.items():
+    print(f"Name: {name}, Marks: {marks}")

@@ -1,0 +1,25 @@
+  # Given  dictionary.
+ python
+students={
+"Rahul":85,
+"Amit":92,
+"Priya":78,
+"Sneha":95
+}
+sort the dictionary based on marks in descending order and print the top two students.
+
+
+students = {
+    "Rahul": 85,
+    "Amit": 92,
+    "Priya": 78,
+    "Sneha": 95
+}
+# key=lambda item: item[1] tells Python to sort by the second element (the marks).
+# reverse=True ensures it sorts from highest to lowest.
+sorted_students = sorted(students.items(), key=lambda item: item[1], reverse=True)
+# 2. Extract the top two students using list slicing
+top_two = sorted_students[:2]
+print("Top 2 Students:")
+for name, marks in top_two:
+    print(f"{name}: {marks}")

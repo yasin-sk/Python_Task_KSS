@@ -1,0 +1,7 @@
+  # write a programmeto reverse a string without using built-in reverse function.
+
+#start:stop:step
+original = "Hello World"
+reversed_text = original[::-1]
+print("Original:", original)
+print("Reversed:", reversed_text)

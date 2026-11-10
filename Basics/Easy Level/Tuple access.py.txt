@@ -1,0 +1,11 @@
+  # Give a tuple (10,20,30,40,50) write a programme to print the first,last and middle elements.
+
+
+tuple = (10, 20, 30, 40, 50)
+first = tuple[0]
+last = tuple[-1]
+middle_index = len(tuple) // 2
+middle = tuple[middle_index]
+print("First :", first)
+print("Last :", last)
+print("Middle :", middle)
