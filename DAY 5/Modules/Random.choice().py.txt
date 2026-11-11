@@ -1,0 +1,9 @@
+  # Write a program that uses random.choice() to randomly select a student from a list and display:
+"The selected student for presentation is: <name>".
+
+
+
+import random
+students = ["Alice", "Bob", "Charlie", "Diana", "Ethan"]
+selected_student = random.choice(students)
+print(f"The selected student for presentation is: {selected_student}")

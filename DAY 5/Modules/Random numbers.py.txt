@@ -1,0 +1,22 @@
+  # Write a Python program that generates 20 random numbers between 1 and 200 using
+the random module and store them in a list.
+Then using the math module, compute and display:
+● Maximum value
+● Minimum value
+● Square root of the maximum number
+● Logarithm of the minimum number
+
+
+import math
+import random
+numbers = [random.randint(1, 200) for i in range(20)]
+max_val = max(numbers)
+min_val = min(numbers)
+max_sqrt = math.sqrt(max_val)
+min_log = math.log(min_val) 
+print(f"Generated List: {numbers}\n")
+print(f"Maximum value: {max_val}")
+print(f"Minimum value: {min_val}")
+print(f"Square root of the maximum number: {max_sqrt:.3f}")
+print(f"Logarithm of the minimum number: {min_log:.4f}")
+

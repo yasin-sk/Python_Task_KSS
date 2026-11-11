@@ -1,0 +1,50 @@
+   # Create a Python module named calculator.py that contains functions to perform:
+● Addition
+● Subtraction
+● Multiplication
+● Division
+Then write another Python program that imports this module and performs calculations
+based on user input.
+
+
+def add(num1, num2):
+    """Returns the sum of two numbers."""
+    return num1 + num2
+def subtract(num1, num2):
+    """Returns the difference of two numbers."""
+    return num1 - num2
+def multiply(num1, num2):
+    """Returns the product of two numbers."""
+    return num1 * num2
+def divide(num1, num2):
+    """Returns the quotient of two numbers. Includes zero division safety."""
+    if num2 == 0:
+        return "Error: Cannot divide by zero!"
+    return num1 / num2
+print("--- Simple Python Calculator ---")
+print("Select an operation:")
+print("1. Addition (+)")
+print("2. Subtraction (-)")
+print("3. Multiplication (*)")
+print("4. Division (/)")
+choice = input("\nEnter choice (1/2/3/4): ")
+if choice in ('1', '2', '3', '4'):
+    first_number = float(input("Enter first number: "))
+    second_number = float(input("Enter second number: "))
+    if choice == '1':
+        result = add(first_number, second_number)
+        print(f"Result: {first_number} + {second_number} = {result}")
+    elif choice == '2':
+        result = subtract(first_number, second_number)
+        print(f"Result: {first_number} - {second_number} = {result}")
+    elif choice == '3':
+        result = multiply(first_number, second_number)
+        print(f"Result: {first_number} * {second_number} = {result}")
+    elif choice == '4':
+        result = divide(first_number, second_number)
+        if isinstance(result, str):
+            print(result)
+        else:
+            print(f"Result: {first_number} / {second_number} = {result}")
+else:
+    print("Invalid Input! Please run the program again and select 1, 2, 3, or 4.")
