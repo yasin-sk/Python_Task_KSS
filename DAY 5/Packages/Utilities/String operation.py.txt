@@ -1,0 +1,10 @@
+  # string_operations.py (functions to convert string to uppercase and count characters.
+
+
+def to_uppercase(text):
+      "Converts a string to uppercase."
+    return text.upper()
+
+def count_characters(text):
+      "Returns the total number of characters in a string."
+    return len(text)

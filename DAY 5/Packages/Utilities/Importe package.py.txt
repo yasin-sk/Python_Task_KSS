@@ -1,0 +1,13 @@
+  # Write a Python program that imports the package and uses functions from both modules
+
+
+from utilities import math_operations, string_operations
+sum_result = math_operations.add(10, 5)
+product_result = math_operations.multiply(4, 7)
+print(f"Addition Result: {sum_result}")
+print(f"Multiplication Result: {product_result}")
+sample_text = "Python Packages"
+upper_text = string_operations.to_uppercase(sample_text)
+char_count = string_operations.count_characters(sample_text)
+print(f"Uppercase Text: {upper_text}")
+print(f"Character Count: {char_count}")
