@@ -1,0 +1,17 @@
+  # Write a program to check whether a number is a Palindrome.
+
+
+num = int(input("Enter a number: "))
+if num < 0:
+    print(f"{num} is not a Palindrome number.")
+else:
+    temp = num
+    reversed_num = 0
+    while temp > 0:
+        digit = temp % 10
+        reversed_num = (reversed_num * 10) + digit
+        temp //= 10
+    if reversed_num == num:
+        print(f"{num} is a Palindrome number.")
+    else:
+        print(f"{num} is not a Palindrome number.")
