@@ -1,0 +1,37 @@
+ # Word Counter Program
+A writer saves an article in a file called article.txt. Write a Python program that:
+● Opens and reads the file
+● Counts the number of words, lines, and characters in the file
+● Displays the results.
+
+
+filename = "article.txt"
+
+# Create a sample file automatically if missing or blocked on online compilers
+try:
+    test = open(filename, "r")
+    test.close()
+except FileNotFoundError:
+    try:
+        sample = open(filename, "w")
+    except PermissionError:
+        filename = "/tmp/article.txt"
+        sample = open(filename, "w")
+    sample.write("Python is easy to learn.\nIt is great for file handling.\n")
+    sample.close()
+
+# Open and read the file
+file = open(filename, "r")
+content = file.read()
+file.close()
+
+# Count lines, words, and characters
+lines = content.splitlines()
+words = content.split()
+characters = len(content)
+
+# Display the results
+print("--- Article Statistics ---")
+print(f"Total Lines: {len(lines)}")
+print(f"Total Words: {len(words)}")
+print(f"Total Characters: {characters}")

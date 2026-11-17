@@ -1,0 +1,24 @@
+ # Grocery List Manager
+A user wants to save grocery items in a file grocery.txt. Write a Python program that takes multiple items from the user
+and writes them into the file, with each item on a new line.
+
+
+# Open grocery.txt in write mode ('w')
+# Note: Use "/tmp/grocery.txt" if your online compiler gives a PermissionError
+file = open("tmp", "w")
+
+print("Enter grocery items (type 'done' when finished):")
+
+while True:
+    item = input("Item: ")
+    
+    # Stop asking when the user types 'done'
+    if item.lower() == "done":
+        break
+        
+    # Write the item followed by a newline (\n)
+    file.write(item + "\n")
+
+file.close()
+print("All items have been saved to grocery.txt!")
+

@@ -1,0 +1,69 @@
+ # 6. Employee Salary Management System
+A company stores employee data in a file employees.txt in the format:
+EmployeeName Salary
+Example:
+Ramesh 25000
+Sita 30000
+Arun 28000
+Write a Python program that:
+● Reads employee data from the file
+● Displays all employee details
+● Finds the employee with the highest salary
+● Appends a new employee record to the file
+
+
+filename = "employees.txt"
+
+# Create a sample file automatically if missing or blocked on online compilers
+try:
+    test = open(filename, "r")
+    test.close()
+except FileNotFoundError:
+    try:
+        sample = open(filename, "w")
+    except PermissionError:
+        filename = "/tmp/employees.txt"
+        sample = open(filename, "w")
+    sample.write("Ramesh 25000\nSita 30000\nArun 28000\n")
+    sample.close()
+
+# 1. Read employee data and display all details
+file = open(filename, "r")
+
+highest_salary = -1
+top_employee = ""
+
+print("--- Employee Records ---")
+for line in file:
+    parts = line.split()
+    
+    if len(parts) == 2:
+        name = parts[0]
+        salary = int(parts[1])
+        
+        print(f"Name: {name}, Salary: {salary}")
+        
+        # 2. Check for the highest salary
+        if salary > highest_salary:
+            highest_salary = salary
+            top_employee = name
+
+file.close()
+
+# Display the highest-paid employee
+print("------------------------")
+if top_employee != "":
+    print(f"Highest Salary: {top_employee} ({highest_salary})")
+else:
+    print("No employee records found.")
+
+# 3. Append a new employee record to the file
+print("\n--- Add New Employee ---")
+new_name = input("Enter employee name: ")
+new_salary = input("Enter employee salary: ")
+
+file = open(filename, "a")
+file.write(f"{new_name} {new_salary}\n")
+file.close()
+
+print(f"Record for {new_name} added successfully!")

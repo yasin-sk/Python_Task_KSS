@@ -1,0 +1,60 @@
+  # Student Marks File Analyzer
+A teacher stores student marks in a file marks.txt in the format:
+Name Marks
+Example:
+Rahul 80
+Anita 90
+Ravi 75
+Write a Python program to:
+● Read the file
+● Display all student records
+● Calculate and display the average marks of the class
+
+
+# Set the filename (change to "/tmp/marks.txt" if using an online compiler without a file sidebar)
+filename = "marks.txt"
+
+# Create a sample file automatically if it doesn't exist yet
+try:
+    test = open(filename, "r")
+    test.close()
+except FileNotFoundError:
+    try:
+        sample = open(filename, "w")
+    except PermissionError:
+        filename = "/tmp/marks.txt"
+        sample = open(filename, "w")
+    sample.write("Rahul 80\nAnita 90\nRavi 75\n")
+    sample.close()
+
+# Read the file and analyze marks
+file = open(filename, "r")
+
+total_marks = 0
+student_count = 0
+
+print("--- Student Records ---")
+
+for line in file:
+    # Split each line into Name and Marks (e.g., ["Rahul", "80"])
+    parts = line.split()
+    
+    # Skip any blank lines
+    if len(parts) == 2:
+        name = parts[0]
+        marks = int(parts[1])
+        
+        print(f"Name: {name}, Marks: {marks}")
+        
+        total_marks += marks
+        student_count += 1
+
+file.close()
+
+# Calculate and display the average
+if student_count > 0:
+    average = total_marks / student_count
+    print("-----------------------")
+    print(f"Class Average: {average:.2f}")
+else:
+    print("No student records found.")

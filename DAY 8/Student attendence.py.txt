@@ -1,0 +1,27 @@
+  # Student Attendance Record
+A teacher wants to store student attendance in a file named attendance.txt. Write a Python program that takes a student
+name as input and appends it to the file. Then display the contents of the file.
+
+
+# Take student name as input
+student_name = input("Enter the student's name: ").strip()
+
+# Append the student's name to attendance.txt
+if student_name:
+    with open("attendance.txt","a") as file:
+        file.write(student_name + "\n")
+    print(f"\n'{student_name}' has been added to the attendance record.")
+else:
+    print("\nNo name entered. Attendance was not updated.")
+
+# Read and display the contents of attendance.txt
+print("\n--- Current Attendance Record ---")
+try:
+    with open("attendance.txt", "r") as file:
+        contents = file.read()
+        if contents:
+            print(contents.strip())
+        else:
+            print("The attendance file is currently empty.")
+except FileNotFoundError:
+    print("No attendance record found yet.")
