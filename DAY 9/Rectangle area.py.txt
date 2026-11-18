@@ -1,0 +1,29 @@
+ # Rectangle Area Calculator (Constructor)
+A geometry application needs to calculate the area of rectangles. Create a Rectangle class that uses a constructor to
+initialize length and width. Add a method to calculate and display the area.
+
+
+class Rectangle:
+    # Constructor to initialize length and width
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    # Method to calculate and display the area
+    def display_area(self):
+        area = self.length * self.width
+        print(f"Length : {self.length}")
+        print(f"Width  : {self.width}")
+        print(f"Area   : {area}")
+        print("-" * 20)
+
+
+# Creating Rectangle objects
+rect1 = Rectangle(10, 5)
+rect2 = Rectangle(7.5, 4)
+
+# Calculating and displaying areas
+print("=== Rectangle Areas ===\n")
+rect1.display_area()
+rect2.display_area()
+

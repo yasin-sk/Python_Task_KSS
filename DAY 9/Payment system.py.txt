@@ -1,0 +1,60 @@
+ # Payment System (Runtime Polymorphism)
+An online store supports multiple payment methods: CreditCard, UPI, and NetBanking. Create a base class Payment with a 
+method process_payment() and override it in each payment type.
+
+
+# Base Class
+class Payment:
+    def process_payment(self, amount):
+        print(f"Processing generic payment of ₹{amount:,.2f}...")
+
+
+# Derived Class 1: CreditCard
+class CreditCard(Payment):
+    def __init__(self, card_number, card_holder):
+        self.card_number = card_number
+        self.card_holder = card_holder
+
+    # Overriding base class method
+    def process_payment(self, amount):
+        masked_card = "XXXX-XXXX-XXXX-" + self.card_number[-4:]
+        print(f"Paid ₹{amount:,.2f} using Credit Card ({masked_card}) - Holder: {self.card_holder}")
+
+
+# Derived Class 2: UPI
+class UPI(Payment):
+    def __init__(self, upi_id):
+        self.upi_id = upi_id
+
+    # Overriding base class method
+    def process_payment(self, amount):
+        print(f"Paid ₹{amount:,.2f} via UPI ID: {self.upi_id}")
+
+
+# Derived Class 3: NetBanking
+class NetBanking(Payment):
+    def __init__(self, bank_name, account_id):
+        self.bank_name = bank_name
+        self.account_id = account_id
+
+    # Overriding base class method
+    def process_payment(self, amount):
+        print(f"Paid ₹{amount:,.2f} through {self.bank_name} NetBanking (Account: {self.account_id})")
+
+
+# Helper function demonstrating runtime polymorphism
+def checkout(payment_method: Payment, amount: float):
+    payment_method.process_payment(amount)
+
+
+# Creating payment objects
+cc_payment = CreditCard("4532015112830366", "Kiran Kumar")
+upi_payment = UPI("kiran.kumar@okicici")
+nb_payment = NetBanking("State Bank of India", "SBI987654")
+
+# Executing payments dynamically at runtime
+print("=== Online Store Checkout ===\n")
+checkout(cc_payment, 3499.00)
+checkout(upi_payment, 850.50)
+checkout(nb_payment, 12500.00)
+

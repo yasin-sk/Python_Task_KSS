@@ -1,0 +1,29 @@
+ #  Employee Salary System (Simple Inheritance)
+A company has two types of employees: Employee and Manager. Create a base class Employee containing name and salary. 
+Create a derived class Manager that inherits from Employee and displays the employee details.
+
+
+# Base Class
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+
+# Derived Class inheriting from Employee
+class Manager(Employee):
+    def display_details(self):
+        print(f"Employee Name : {self.name}")
+        print(f"Salary        : ₹{self.salary:,.2f}")
+        print("-" * 30)
+
+
+# Creating Manager objects
+mgr1 = Manager("Ananya Rao", 85000)
+mgr2 = Manager("Vikram Reddy", 105000)
+
+# Displaying details using the derived class method
+print("=== Manager Details ===\n")
+mgr1.display_details()
+mgr2.display_details()
+

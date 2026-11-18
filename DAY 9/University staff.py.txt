@@ -1,0 +1,68 @@
+ # . University Staff Management (Hierarchical Inheritance)
+A university has different staff types such as Professor, LabAssistant, and Administrator. All inherit from a base class
+Staff. Implement hierarchical inheritance to manage and display their information.
+
+
+# Base Class
+class Staff:
+    def __init__(self, staff_id, name, department):
+        self.staff_id = staff_id
+        self.name = name
+        self.department = department
+
+    def display_base_info(self):
+        print(f"Staff ID   : {self.staff_id}")
+        print(f"Name       : {self.name}")
+        print(f"Department : {self.department}")
+
+
+# Derived Class 1: Professor
+class Professor(Staff):
+    def __init__(self, staff_id, name, department, subject):
+        super().__init__(staff_id, name, department)
+        self.subject = subject
+
+    def display_details(self):
+        print("Role       : Professor")
+        self.display_base_info()
+        print(f"Subject    : {self.subject}")
+        print("-" * 32)
+
+
+# Derived Class 2: LabAssistant
+class LabAssistant(Staff):
+    def __init__(self, staff_id, name, department, lab_name):
+        super().__init__(staff_id, name, department)
+        self.lab_name = lab_name
+
+    def display_details(self):
+        print("Role       : Lab Assistant")
+        self.display_base_info()
+        print(f"Assigned Lab: {self.lab_name}")
+        print("-" * 32)
+
+
+# Derived Class 3: Administrator
+class Administrator(Staff):
+    def __init__(self, staff_id, name, department, office_section):
+        super().__init__(staff_id, name, department)
+        self.office_section = office_section
+
+    def display_details(self):
+        print("Role       : Administrator")
+        self.display_base_info()
+        print(f"Section    : {self.office_section}")
+        print("-" * 32)
+
+
+# Creating objects for each derived staff type
+prof = Professor("STF101", "Dr. Kavitha ", "Computer Science", "Data Structures")
+lab_asst = LabAssistant("STF204", "Suresh ", "Electronics", "Microprocessor Lab")
+admin = Administrator("STF309", "Meera ", "Administration", "Admissions & Records")
+
+# Displaying information for all staff members
+print("=== University Staff Management ===\n")
+prof.display_details()
+lab_asst.display_details()
+admin.display_details()
+

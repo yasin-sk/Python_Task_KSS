@@ -1,0 +1,34 @@
+ # Student Result Generator (Method Overloading Concept)
+A school system calculates student results differently depending on available data.Create a Result class where a method 
+can calculate the result using either two subjects or three subjects
+
+
+class Result:
+    # Method supporting both 2 and 3 subjects using a default parameter
+    def calculate_result(self, sub1, sub2, sub3=None):
+        if sub3 is None:
+            total = sub1 + sub2
+            percentage = total / 2
+            print(f"Subjects Evaluated : 2 ({sub1}, {sub2})")
+        else:
+            total = sub1 + sub2 + sub3
+            percentage = total / 3
+            print(f"Subjects Evaluated : 3 ({sub1}, {sub2}, {sub3})")
+
+        status = "Pass" if percentage >= 40 else "Fail"
+        print(f"Total Marks        : {total}")
+        print(f"Percentage         : {percentage:.2f}%")
+        print(f"Result             : {status}")
+        print("-" * 35)
+
+
+# Creating a Result object
+student_result = Result()
+
+print("=== Student Result Generator ===\n")
+
+# Calling the method with two subjects
+student_result.calculate_result(78, 84)
+
+# Calling the same method with three subjects
+student_result.calculate_result(85, 90, 88)

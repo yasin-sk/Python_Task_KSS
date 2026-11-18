@@ -1,0 +1,31 @@
+ # Student Information System (Class & Object)
+A school wants a program to store student details. Create a Student class with attributes such as name, roll number, and
+marks. Create objects for at least three students and display their details.
+
+
+class Student:
+    # Constructor to initialize attributes
+    def __init__(self, name, roll_number, marks):
+        self.name = name
+        self.roll_number = roll_number
+        self.marks = marks
+
+    # Method to display student details
+    def display_details(self):
+        print(f"Name        : {self.name}")
+        print(f"Roll Number : {self.roll_number}")
+        print(f"Marks       : {self.marks}")
+        print("-" * 25)
+
+
+# Creating objects for three students
+student1 = Student("ASIF", 101, 88.5)
+student2 = Student("YASIN", 102, 92.0)
+student3 = Student("VAHID", 103, 79.5)
+
+# Displaying details of all students
+print("=== Student Details ===\n")
+student1.display_details()
+student2.display_details()
+student3.display_details()
+

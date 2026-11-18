@@ -1,0 +1,49 @@
+ # Vehicle Management System (Inheritance)
+A transport company manages different vehicles. Create a base class Vehicle with attributes like brand and speed. Create
+derived classes Car and Bike that inherit from Vehicle and display their details.
+
+
+# Base Class
+class Vehicle:
+    def __init__(self, brand, speed):
+        self.brand = brand
+        self.speed = speed
+
+
+# Derived Class 1
+class Car(Vehicle):
+    def __init__(self, brand, speed, fuel_type):
+        super().__init__(brand, speed)
+        self.fuel_type = fuel_type
+
+    def display_details(self):
+        print("Vehicle Type : Car")
+        print(f"Brand        : {self.brand}")
+        print(f"Top Speed    : {self.speed} km/h")
+        print(f"Fuel Type    : {self.fuel_type}")
+        print("-" * 30)
+
+
+# Derived Class 2
+class Bike(Vehicle):
+    def __init__(self, brand, speed, engine_cc):
+        super().__init__(brand, speed)
+        self.engine_cc = engine_cc
+
+    def display_details(self):
+        print("Vehicle Type : Bike")
+        print(f"Brand        : {self.brand}")
+        print(f"Top Speed    : {self.speed} km/h")
+        print(f"Engine       : {self.engine_cc} cc")
+        print("-" * 30)
+
+
+# Creating objects for Car and Bike
+car1 = Car("Hyundai", 180, "Petrol")
+bike1 = Bike("Royal Enfield", 135, 350)
+
+# Displaying details of each vehicle
+print("=== Vehicle Management System ===\n")
+car1.display_details()
+bike1.display_details()
+

@@ -1,0 +1,45 @@
+ # Online Shopping System (Multilevel Inheritance)
+An e-commerce company organizes products using multiple levels. Create classesProduct → ElectronicProduct → MobilePhone 
+using multilevel inheritance and display product details.
+
+
+# Level 1: Base Class
+class Product:
+    def __init__(self, product_id, name, price):
+        self.product_id = product_id
+        self.name = name
+        self.price = price
+
+
+# Level 2: Derived from Product
+class ElectronicProduct(Product):
+    def __init__(self, product_id, name, price, brand, warranty_years):
+        super().__init__(product_id, name, price)
+        self.brand = brand
+        self.warranty_years = warranty_years
+
+
+# Level 3: Derived from ElectronicProduct
+class MobilePhone(ElectronicProduct):
+    def __init__(self, product_id, name, price, brand, warranty_years, ram_gb, storage_gb):
+        super().__init__(product_id, name, price, brand, warranty_years)
+        self.ram_gb = ram_gb
+        self.storage_gb = storage_gb
+
+    def display_details(self):
+        print("=== Mobile Phone Details ===")
+        print(f"Product ID   : {self.product_id}")
+        print(f"Product Name : {self.name}")
+        print(f"Brand        : {self.brand}")
+        print(f"Price        : ₹{self.price:,.2f}")
+        print(f"Warranty     : {self.warranty_years} Year(s)")
+        print(f"RAM          : {self.ram_gb} GB")
+        print(f"Storage      : {self.storage_gb} GB")
+        print("-" * 32)
+
+
+# Creating a MobilePhone object
+phone1 = MobilePhone("EL1045", "Galaxy S24", 74999.00, "Samsung", 1, 8, 256)
+
+# Displaying all inherited and specific details
+phone1.display_details()

@@ -1,0 +1,21 @@
+ # Random Number Generator (Generators)
+A program is needed to generate numbers for testing purposes. Create a generator function that produces numbers from 1 to
+N and prints them one by one when iterated.
+
+
+# Generator function to produce numbers from 1 to N
+def number_generator(n):
+    current = 1
+    while current <= n:
+        yield current
+        current += 1
+
+
+# Setting the upper limit N
+N = 5
+
+print(f"=== Generating Numbers from 1 to {N} ===\n")
+
+# Iterating over the generator object to print numbers one by one
+for number in number_generator(N):
+    print(number)

@@ -1,0 +1,46 @@
+ # Secure Login System (Decorators)
+A web application wants to ensure that users are authenticated before accessing sensitive functions. Create a decorator
+that checks whether the user is logged in before allowing access to a function.
+
+
+from functools import wraps
+
+
+# Decorator function to check authentication status
+def login_required(func):
+    @wraps(func)
+    def wrapper(user, *args, **kwargs):
+        if not user.get("is_authenticated", False):
+            print(f"Access Denied: '{user['username']}' must log in to access '{func.__name__}'.")
+            return None
+        return func(user, *args, **kwargs)
+    return wrapper
+
+
+# Protected function 1
+@login_required
+def view_dashboard(user):
+    print(f"Welcome to your dashboard, {user['username']}! Viewing account summary...")
+
+
+# Protected function 2
+@login_required
+def transfer_funds(user, amount):
+    print(f"Success: ₹{amount:,.2f} transferred from {user['username']}'s account.")
+
+
+# Simulating two users: one logged out, one logged in
+guest_user = {"username": "Guest_101", "is_authenticated": False}
+logged_in_user = {"username": "Neha_Sharma", "is_authenticated": True}
+
+print("=== Secure Login System ===\n")
+
+# Attempting access with an unauthenticated user
+view_dashboard(guest_user)
+transfer_funds(guest_user, 2000)
+print("-" * 55)
+
+# Attempting access with an authenticated user
+view_dashboard(logged_in_user)
+transfer_funds(logged_in_user, 2000)
+

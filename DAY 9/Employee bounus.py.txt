@@ -1,0 +1,40 @@
+ # Employee Bonus Calculator (Decorators & OOP)
+A company wants to apply a bonus calculation automatically before displaying the salary. Create an Employee class and use
+a decorator that modifies the salary by adding a bonus before displaying it
+
+
+from functools import wraps
+# Decorator to add a 10% bonus before displaying the salary
+def apply_bonus(func):
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        bonus = self.salary * 0.10  # Calculate 10% bonus
+        self.salary += bonus
+        print(f"Bonus Applied : ₹{bonus:,.2f} (10%)")
+        return func(self, *args, **kwargs)
+    return wrapper
+
+
+class Employee:
+    def __init__(self, emp_id, name, salary):
+        self.emp_id = emp_id
+        self.name = name
+        self.salary = salary
+
+    # Decorating the display method to apply bonus automatically
+    @apply_bonus
+    def display_salary(self):
+        print(f"Employee ID   : {self.emp_id}")
+        print(f"Employee Name : {self.name}")
+        print(f"Final Salary  : ₹{self.salary:,.2f}")
+        print("-" * 35)
+
+
+# Creating Employee objects
+emp1 = Employee("EMP101", "Yasin", 60000.0)
+emp2 = Employee("EMP102", "Asif", 85000.0)
+
+# Calling display_salary() automatically triggers the bonus decorator
+print("=== Employee Bonus Calculator ===\n")
+emp1.display_salary()
+emp2.display_salary()

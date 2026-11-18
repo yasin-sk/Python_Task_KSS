@@ -1,0 +1,20 @@
+ # . Infinite Even Number Generator (Generators)
+Create a generator function that continuously generates even numbers starting from 2. The program should print the first
+N even numbers using this generator.
+
+
+# Infinite generator function starting from 2
+def even_number_generator():
+    num = 2
+    while True:
+        yield num
+        num += 2
+# Number of even values to print
+N = 7
+# Creating the generator object
+even_gen = even_number_generator()
+print(f"=== First {N} Even Numbers ===\n")
+# Fetching and printing the first N numbers one by one
+for _ in range(N):
+    print(next(even_gen))
+
