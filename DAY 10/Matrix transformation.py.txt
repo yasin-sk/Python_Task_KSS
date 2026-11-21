@@ -1,0 +1,25 @@
+ # . Matrix Transformation in Image Processing
+An image processing system stores pixel intensity values in a matrix.
+Scenario:
+[[1, 2],
+[3, 4]]
+Task:
+● Create a NumPy array for this matrix.
+● Find its transpose.
+● Print both matrices.
+
+
+import numpy as np
+
+# 1. Create a NumPy array for the pixel matrix
+pixel_matrix = np.array([[3, 4]])
+
+# 2. Find its transpose
+transposed_matrix = pixel_matrix.T
+
+# 3. Print both matrices
+print("Original Matrix:")
+print(pixel_matrix)
+
+print("\nTransposed Matrix:")
+print(transposed_matrix)

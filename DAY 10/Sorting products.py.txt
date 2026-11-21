@@ -1,0 +1,22 @@
+ # Sorting Product Prices
+An e-commerce company stores product prices in a NumPy array.
+Scenario:
+Prices = [499, 299, 799, 199, 599]
+Task:
+● Convert it into a NumPy array.
+● Sort the prices in ascending order.
+
+
+import numpy as np
+
+# 1. Original prices list
+prices = [499, 299, 799, 199, 599]
+
+# 2. Convert it into a NumPy array
+prices_array = np.array(prices)
+
+# 3. Sort the prices in ascending order
+sorted_prices = np.sort(prices_array)
+
+# 4. Print the sorted prices
+print("Sorted Prices:", sorted_prices)
