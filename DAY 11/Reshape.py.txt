@@ -1,0 +1,21 @@
+ # Reshape and Flatten Image Data
+Scenario:
+An image is stored as a 2 × 3 matrix:
+[[1,2,3],
+[4,5,6]]
+Task:
+1. Convert it into a NumPy array.
+2. Flatten the array into 1-D format.
+3. Print the flattened array
+
+
+import numpy as np
+# Given 2 x 3 image matrix
+image_matrix = [[1, 2, 3]]
+# 1. Convert it into a NumPy array
+image_array = np.array(image_matrix)
+# 2. Flatten the array into 1-D format
+flattened_image = image_array.reshape(-1)  # Alternatively: image_array.flatten()
+# 3. Print the flattened array
+print("Flattened 1-D array:", flattened_image)
+

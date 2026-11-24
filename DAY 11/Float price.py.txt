@@ -1,0 +1,17 @@
+ # . Convert Float Prices to Integer
+A shop stores product prices:
+[10.5, 20.8, 15.3]
+Scenario:
+The billing system requires integer values.
+Task:
+● Convert the array from float to integer using astype()
+
+
+import numpy as np
+# Given list of float product prices
+prices = [10.5, 20.8, 15.3]
+prices_array = np.array(prices)
+# Convert the array from float to integer using astype()
+int_prices = prices_array.astype(int)
+print("Integer prices:", int_prices)
+print("New data type:", int_prices.dtype)

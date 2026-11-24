@@ -1,0 +1,15 @@
+ # . Find Indexes of Specific Value
+A quality check system stores product defect codes:
+[2, 4, 1, 4, 3, 4, 5]
+Task:
+● Find the indexes where value = 4 using NumPy searching.
+
+
+import numpy as np
+# Given product defect codes
+defect_codes = [2, 4, 1, 4, 3, 4, 5]
+codes_array = np.array(defect_codes)
+# Find the indexes where value = 4 using NumPy searching
+indexes = np.where(codes_array == 4)
+print("Indexes where value is 4:", indexes[0])
+

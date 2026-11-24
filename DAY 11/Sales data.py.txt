@@ -1,0 +1,18 @@
+ # Reshaping Sales Data
+A company stores monthly sales data:
+[10,20,30,40,50,60,70,80,90,100,110,120]
+Scenario:
+You need to display the data as 4 months × 3 products matrix.
+Task:
+● Convert the list to NumPy array.
+● Reshape it into a 4 × 3 array.
+
+
+import numpy as np
+# Given monthly sales data (12 elements)
+sales_data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
+# Convert the list to a NumPy array
+sales_array = np.array(sales_data)
+# Reshape it into a 4 x 3 array (4 months x 3 products)
+reshaped_sales = sales_array.reshape(4, 3)
+print("Reshaped Sales Matrix (4x3):\n", reshaped_sales)

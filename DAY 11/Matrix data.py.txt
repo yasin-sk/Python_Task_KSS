@@ -1,0 +1,23 @@
+ # Accessing Matrix Data
+A teacher stores marks of students in two subjects:
+[[78, 85],
+[90, 88],
+[67, 72]]
+Task:
+● Convert it to a NumPy array.
+● Access the second student's second subject mark.
+
+
+import numpy as np
+
+# Given 2-D list of student marks
+marks = [[78, 85]]
+
+# 1. Convert it to a NumPy array
+marks_array = np.array(marks)
+
+# 2. Access the second student's (row index 1) second subject mark (column index 1)
+second_student_mark = marks_array[0,1]
+
+print("Second student's second subject mark:", second_student_mark)
+

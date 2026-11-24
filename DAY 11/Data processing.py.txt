@@ -1,0 +1,29 @@
+ #  Copy vs View Behavior in Data Processing
+Scenario:
+A dataset:
+[10, 20, 30, 40]
+Task:
+● Create a copy of the array.
+● Modify the original array.
+● Show that the copy does not change.
+● Repeat using view() and observe the difference.
+
+
+import numpy as np
+# --- Part 1: Using copy() ---
+original_copy_test = np.array([10, 20, 30, 40])
+arr_copy = original_copy_test.copy()
+# Modify the original array
+original_copy_test[0] = 99
+print("--- COPY BEHAVIOR ---")
+print("Modified Original:", original_copy_test)
+print("Copy (unchanged): ", arr_copy)
+# --- Part 2: Using view() ---
+original_view_test = np.array([10, 20, 30, 40])
+arr_view = original_view_test.view()
+# Modify the original array
+original_view_test[0] = 99
+print("\n--- VIEW BEHAVIOR ---")
+print("Modified Original:", original_view_test)
+print("View (changed):   ", arr_view)
+

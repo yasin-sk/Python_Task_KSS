@@ -1,0 +1,19 @@
+ # Bank Transaction Storage
+A bank stores the transaction amounts of a customer in a list:
+[1200, 500, 800, 1500]
+Scenario:
+● Convert the list into a NumPy array.
+● Print the type of the object.
+● Verify that it is a NumPy ndarray.
+
+
+import numpy as np
+# Given list of bank transactions
+transactions = [1200, 500, 800, 1500]
+# Convert the list into a NumPy array
+transaction_array = np.array(transactions)
+# Print the type of the object
+print("Object type:", type(transaction_array))
+# Verify that it is a NumPy ndarray
+is_ndarray = isinstance(transaction_array, np.ndarray)
+print("Is it a NumPy ndarray?:", is_ndarray)

@@ -1,0 +1,16 @@
+ #  Device Sensor Value (Scalar Array)
+An IoT device records a single sensor reading = 75.
+Task:
+● Create a 0-D NumPy array with this value.
+● Print the value and check its number of dimensions.
+
+
+import numpy as np
+# Given single sensor reading
+sensor_reading = 75
+# Create a 0-D NumPy array (scalar array)
+sensor_array = np.array(sensor_reading)
+# Print the value and check its number of dimensions
+print("Sensor Value:", sensor_array)
+print("Number of dimensions (ndim):", sensor_array.ndim)
+

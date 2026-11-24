@@ -1,0 +1,17 @@
+ #  Sorting Customer Names
+A system stores customer names:
+["Ravi", "Anil", "Sita", "John"]
+Task:
+● Convert it to a NumPy array.
+● Sort the names alphabetically.
+
+
+import numpy as np
+# Given list of customer names
+names = ["Ravi", "Anil", "Sita", "John"]
+#  Convert it to a NumPy array
+names_array = np.array(names)
+# Sort the names alphabetically
+sorted_names = np.sort(names_array)
+print("Sorted customer names:", sorted_names)
+

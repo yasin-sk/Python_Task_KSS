@@ -1,0 +1,17 @@
+ # Iterate Through Daily Sales
+Daily sales data:
+[200, 300, 150, 400]
+Task:
+● Store it in a NumPy array.
+● Iterate through the array and print each sale value.
+
+
+import numpy as np
+# Given daily sales data
+sales = [200, 300, 150, 400]
+# Store it in a NumPy array
+sales_array = np.array(sales)
+# Iterate through the array and print each sale value
+for sale in sales_array:
+    print(sale)
+
