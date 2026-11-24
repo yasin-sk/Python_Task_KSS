@@ -1,0 +1,17 @@
+ # Random Matrix and Condition Filtering
+Scenario:
+● Generate a 3×3 matrix of random numbers (0–50).
+Task:
+● Filter elements greater than 25.
+● Print filtered values.
+
+
+import numpy as np
+# 1. Generate a 3x3 matrix of random integers from 0 to 50 (inclusive)
+matrix = np.random.randint(0, 51, size=(3, 3))
+print("Generated 3x3 Matrix:\n", matrix)
+# 2. Filter elements greater than 25
+filtered_values = matrix[matrix > 25]
+# 3. Print filtered values
+print("\nElements greater than 25:", filtered_values)
+

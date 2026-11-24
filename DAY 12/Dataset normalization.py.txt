@@ -1,0 +1,21 @@
+ # Random Dataset Normalization + Filtering
+Scenario:
+● Generate 8 random float values between 0 and 1.
+Task:
+1. Normalize by multiplying with 100
+2. Filter values greater than 50
+3. Sort the filtered value
+
+
+import numpy as np
+# Generate 8 random float values between 0.0 and 1.0
+random_floats = np.random.rand(8)
+# 1. Normalize (scale) by multiplying with 100
+scaled_values = random_floats * 100
+# 2. Filter values greater than 50
+filtered_values = scaled_values[scaled_values > 50]
+# 3. Sort the filtered values in ascending order
+sorted_values = np.sort(filtered_values)
+print("Original random floats:\n", random_floats)
+print("\nScaled values (x100):\n", scaled_values)
+print("\nFiltered (> 50) and sorted:\n", sorted_values)

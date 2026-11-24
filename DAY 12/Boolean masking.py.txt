@@ -1,0 +1,20 @@
+ # Boolean Masking for Salary Analysis
+Scenario:
+Employee salaries:
+[25000, 40000, 15000, 50000, 30000]
+Task:
+● Filter salaries above 30000.
+● Count how many employees satisfy this condition.
+
+
+import numpy as np
+# Given employee salaries
+salaries = [25000, 40000, 15000, 50000, 30000]
+salary_array = np.array(salaries)
+# Create boolean mask and filter salaries above 30000
+mask = salary_array > 30000
+high_salaries = salary_array[mask]
+# Count how many employees satisfy this condition
+count = np.sum(mask)  # Alternatively: len(high_salaries) or high_salaries.size
+print("Salaries above 30000:", high_salaries)
+print("Number of employees:", count)

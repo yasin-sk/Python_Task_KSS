@@ -1,0 +1,13 @@
+ # Even Number Filter (List Comprehension)
+A system stores numbers:
+nums = [1, 2, 3, 4, 5, 6]
+Task:
+● Use list comprehension to create a new list containing only even numbers.
+
+
+# Given list of numbers
+nums = [1, 2, 3, 4, 5, 6]
+# Use list comprehension to filter only even numbers
+even_nums = [num for num in nums if num % 2 == 0]
+print("Even numbers:", even_nums)
+

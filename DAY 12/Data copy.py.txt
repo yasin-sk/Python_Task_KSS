@@ -1,0 +1,35 @@
+ # 3. Employee Data Copy Issue (Shallow vs Deep Copy)
+A company stores employee data:
+employees = [[101, "A"], [102, "B"], [103, "C"]]
+Scenario:
+● Create a shallow copy of the list.
+● Modify one nested list (e.g., change "A" to "Z").
+● Observe changes in both lists.
+Task:
+● Explain why the change reflects in both.
+● Fix it using deep copy.
+
+
+import copy
+
+# --- Part 1: Shallow Copy Issue ---
+employees = [[101, "A"], [102, "B"], [103, "C"]]
+shallow_backup = employees.copy()  # Or copy.copy(employees)
+
+# Modify a nested list element ("A" -> "Z")
+employees[0][1] = "Z"
+
+print("--- SHALLOW COPY ---")
+print("Original employees:", employees)
+print("Shallow backup:    ", shallow_backup)
+
+# --- Part 2: Fix Using Deep Copy ---
+employees = [[101, "A"], [102, "B"], [103, "C"]]
+deep_backup = copy.deepcopy(employees)
+
+# Modify a nested list element ("A" -> "Z")
+employees[0][1] = "Z"
+
+print("\n--- DEEP COPY ---")
+print("Original employees:", employees)
+print("Deep backup:       ", deep_backup)

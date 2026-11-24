@@ -1,0 +1,19 @@
+ # Filter Positive Even Numbers from Dataset
+Scenario:
+A dataset contains mixed values:
+arr = [-5, 10, 15, -2, 20, 25, 30]
+Task:
+● Convert to NumPy array.
+● Filter values that are:
+○ Positive
+○ Even
+
+
+import numpy as np
+# Given mixed dataset
+arr = [-5, 10, 15, -2, 20, 25, 30]
+# 1. Convert to NumPy array
+num_array = np.array(arr)
+# 2. Filter values that are positive (> 0) AND even (% 2 == 0)
+positive_even = num_array[(num_array > 0) & (num_array % 2 == 0)]
+print("Positive even numbers:", positive_even)

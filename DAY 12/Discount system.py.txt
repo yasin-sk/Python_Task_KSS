@@ -1,0 +1,15 @@
+ # Conditional Discount System (List Comprehension)
+A shop has prices:
+prices = [100, 200, 300, 400]
+Scenario:
+● Apply a 10% discount only if price > 200.
+Task:
+● Use list comprehension with condition to create updated price list.
+
+
+# Given list of prices
+prices = [100, 200, 300, 400]
+# Apply 10% discount (multiply by 0.9) only if price > 200
+updated_prices = [price * 0.9 if price > 200 else price for price in prices]
+print("Updated prices:", updated_prices)
+

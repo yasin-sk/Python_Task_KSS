@@ -1,0 +1,22 @@
+ # Nested Data Independence (Deep Copy)
+A school stores classroom data:
+classes = [["Math", [30, 35]], ["Science", [25, 28]]]
+Scenario:
+● Create a deep copy of this structure.
+● Modify student count in original.
+Task:
+● Prove that copied data remains unchanged.
+● Explain why deep copy is required here.
+
+
+import copy
+# Given nested classroom data (3 levels deep)
+classes = [["Math", [30, 35]], ["Science", [25, 28]]]
+# 1. Create a deep copy of the structure
+classes_backup = copy.deepcopy(classes)
+# 2. Modify the student count in the original list (change 35 -> 40)
+classes[0][1][1] = 40
+# 3. Prove that the copied data remains unchanged
+print("Modified Original:", classes)
+print("Deep Copy Backup: ", classes_backup)
+
