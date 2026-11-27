@@ -1,0 +1,17 @@
+ #  Sales Threshold Filtering
+You are given monthly sales:
+sales = np.array([12000, 18000, 9000, 22000, 15000, 30000])
+Task:
+● Filter all sales values greater than the average sales
+● Return the filtered array.
+
+
+import numpy as np
+# Given monthly sales array
+sales = np.array([12000, 18000, 9000, 22000, 15000, 30000])
+# Calculate the average sales
+avg_sales = np.mean(sales)
+# Filter all sales values greater than the average sales
+above_avg_sales = sales[sales > avg_sales]
+print("Average sales:", avg_sales)
+print("Sales above average:", above_avg_sales)

@@ -1,0 +1,36 @@
+ # Student Marks Analysis
+Given marks of 5 students in 3 subjects:
+marks = np.array([
+[70, 80, 90],
+[60, 75, 85],
+[50, 65, 70],
+[90, 95, 85],
+[40, 55, 60]
+])
+Task:
+● Calculate total marks of each student.
+● Identify students whose total marks are above the class average.
+
+
+import numpy as np
+
+# Given marks of 5 students in 3 subjects
+marks = np.array([,
+ [70,80,90],
+ [60,70,85],
+ [50,65,70],
+ [90,95,85],                 
+ [40, 55, 60]
+])
+#  Calculate total marks of each student (sum across columns/subjects, axis=1)
+student_totals = np.sum(marks, axis=1)
+# Calculate the class average of total marks
+class_average = np.mean(student_totals)
+# Identify students whose total marks are above the class average
+above_avg_totals = student_totals[student_totals > class_average]
+above_avg_students = np.where(student_totals > class_average)[0] + 1  # 1-based student numbers
+print("Total marks of each student:", student_totals)
+print("Class average total:", class_average)
+print("Totals above class average:", above_avg_totals)
+print("Students above class average (Student #):", above_avg_students)
+

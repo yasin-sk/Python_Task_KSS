@@ -1,0 +1,18 @@
+ #  Reshape & Row Averages
+A dataset:
+data = np.arange(1, 13)
+Task:
+● Reshape it into a 3×4 matrix
+● Compute average of each row
+
+
+import numpy as np
+# Given dataset: numbers 1 to 12
+data = np.arange(1, 13)
+#  Reshape it into a 3x4 matrix
+matrix = data.reshape(3, 4)
+#  Compute the average of each row (across columns, axis=1)
+row_averages = np.mean(matrix, axis=1)
+print("3x4 Matrix:\n", matrix)
+print("\nAverage of each row:", row_averages)
+

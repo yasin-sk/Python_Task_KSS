@@ -1,0 +1,19 @@
+ # Remove Outliers
+Given data:
+values = np.array([10, 12, 15, 18, 100, 14, 13])
+Task:
+● Compute the mean and standard deviation
+● Remove values that are more than 2 standard deviations from the mean
+
+
+import numpy as np
+# Given data
+values = np.array([10, 12, 15, 18, 100, 14, 13])
+#  Compute the mean and standard deviation
+mean_val = np.mean(values)
+std_val = np.std(values)
+#  Remove values that are more than 2 standard deviations from the mean
+filtered_values = values[np.abs(values - mean_val) <= 2 * std_val]
+print(f"Mean: {mean_val:.2f}")
+print(f"Standard Deviation: {std_val:.2f}")
+print("Filtered values (outliers removed):", filtered_values)
