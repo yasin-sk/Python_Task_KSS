@@ -1,0 +1,100 @@
+ # Smart Data Processing Pipeline
+Scenario:
+A system processes numeric data from file.
+Task:
+● Read numbers from a file
+● Use NumPy for calculations (mean, std)
+● Convert results to Pandas DataFrame
+● Use exception handling for bad data
+● Use a generator to stream data
+● Apply decorator to measure execution time
+
+
+import time
+from functools import wraps
+import numpy as np
+import pandas as pd
+
+data_file = "/tmp/numbers.txt"
+
+# Setup: Create a sample file containing valid numbers and bad data
+sample_data = [
+    "10.5\n",
+    "20.0\n",
+    "invalid_entry\n",
+    "30.5\n",
+    "\n",
+    "40.0\n",
+    "N/A\n",
+    "50.0\n"
+]
+
+with open(data_file, "w") as f:
+    f.writelines(sample_data)
+
+
+# 1. Decorator to measure execution time
+def measure_time(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        elapsed_ms = (end_time - start_time) * 1000
+        print(f"[TIMER] '{func.__name__}' executed in {elapsed_ms:.4f} ms")
+        return result
+    return wrapper
+
+
+# 2. Generator to stream and validate numeric data from a file
+def stream_numbers(file_path):
+    try:
+        with open(file_path, "r") as file:
+            for line_num, line in enumerate(file, start=1):
+                cleaned = line.strip()
+                if not cleaned:
+                    continue
+                # 3. Exception handling for bad data
+                try:
+                    yield float(cleaned)
+                except ValueError:
+                    print(f"[WARNING] Skipping bad data on line {line_num}: '{cleaned}'")
+    except OSError as e:
+        print(f"[ERROR] Could not read file '{file_path}': {e}")
+
+
+# 4. Main pipeline function using NumPy and Pandas
+@measure_time
+def process_pipeline(file_path):
+    # Collect streamed numbers from the generator
+    valid_numbers = list(stream_numbers(file_path))
+
+    if not valid_numbers:
+        print("No valid numeric data found to process.")
+        return None
+
+    arr = np.array(valid_numbers)
+
+    # Use NumPy for calculations
+    mean_val = np.mean(arr)
+    std_val = np.std(arr)
+
+    # Convert results to Pandas DataFrame
+    summary_df = pd.DataFrame({
+        "Count": [len(arr)],
+        "Mean": [round(mean_val, 2)],
+        "Std_Dev": [round(std_val, 2)],
+        "Min": [np.min(arr)],
+        "Max": [np.max(arr)]
+    })
+
+    return summary_df
+
+
+# --- Run Pipeline ---
+results_df = process_pipeline(data_file)
+
+if results_df is not None:
+    print("\n--- Pipeline Summary DataFrame ---")
+    print(results_df.to_string(index=False))
+

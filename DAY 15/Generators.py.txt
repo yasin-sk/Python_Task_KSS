@@ -1,0 +1,53 @@
+ # Generator-based Log Reader
+Scenario:
+A large log file needs to be processed.
+Task:
+● Create a generator to read file line by line
+● Use loop to process logs
+● Use condition to filter errors
+● Count occurrences using a dictionary
+
+
+log_file = "/tmp/server.log"
+
+# Setup: Create a sample log file for demonstration
+sample_logs = [
+    "2026-11-27 10:00:01 INFO User logged in\n",
+    "2026-11-27 10:01:15 ERROR Database connection failed\n",
+    "2026-11-27 10:02:30 WARNING High memory usage\n",
+    "2026-11-27 10:03:10 ERROR Timeout while fetching API\n",
+    "2026-11-27 10:04:05 ERROR Database connection failed\n",
+    "2026-11-27 10:05:22 INFO Request completed\n",
+    "2026-11-27 10:06:40 ERROR Database connection failed\n",
+    "2026-11-27 10:07:11 ERROR Timeout while fetching API\n"
+]
+
+with open(log_file, "w") as f:
+    f.writelines(sample_logs)
+
+
+# 1. Create a generator to read the file line by line
+def read_logs(file_path):
+    with open(file_path, "r") as file:
+        for line in file:
+            yield line.strip()
+
+
+# Dictionary to count occurrences of each error message
+error_counts = {}
+
+# 2. Use a loop to process logs from the generator
+for entry in read_logs(log_file):
+    # 3. Use a condition to filter errors
+    if "ERROR" in entry:
+        # Extract the error message after "ERROR "
+        error_msg = entry.split("ERROR ", 1)[1]
+        
+        # 4. Count occurrences using a dictionary
+        error_counts[error_msg] = error_counts.get(error_msg, 0) + 1
+
+# Display results
+print("--- Error Occurrence Summary ---")
+for error, count in error_counts.items():
+    print(f"{error}: {count}")
+

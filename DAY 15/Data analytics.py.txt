@@ -1,0 +1,48 @@
+ # Data Analysis Tool (NumPy + Pandas)
+Scenario:
+Analyze student marks.
+Task:
+● Generate marks using NumPy
+● Convert into Pandas DataFrame
+● Use conditions to filter passing students
+● Calculate mean using math/NumPy
+● Use loop to print results
+
+
+import numpy as np
+import pandas as pd
+
+# Optional: Set seed for reproducible random marks
+np.random.seed(42)
+
+# 1. Generate marks for 6 students using NumPy (range: 20 to 100)
+students = ["Alice", "Bob", "Charlie", "Diana", "Ethan", "Fiona"]
+marks = np.random.randint(20, 101, size=len(students))
+
+# 2. Convert into Pandas DataFrame
+df = pd.DataFrame({
+    "Name": students,
+    "Marks": marks
+})
+
+# 3. Use conditions to filter passing students (pass mark >= 40)
+pass_mark = 40
+passed_df = df[df["Marks"] >= pass_mark]
+
+# 4. Calculate mean using NumPy
+class_mean = np.mean(df["Marks"])
+passed_mean = np.mean(passed_df["Marks"])
+
+# 5. Use loop to print results
+print("--- All Student Marks ---")
+for index, row in df.iterrows():
+    status = "Pass" if row["Marks"] >= pass_mark else "Fail"
+    print(f"{row['Name']}: {row['Marks']} ({status})")
+
+print("\n--- Passing Students ---")
+for index, row in passed_df.iterrows():
+    print(f"- {row['Name']}: {row['Marks']}")
+
+print(f"\nOverall Class Mean: {class_mean:.2f}")
+print(f"Passing Students Mean: {passed_mean:.2f}")
+

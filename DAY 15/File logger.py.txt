@@ -1,0 +1,51 @@
+ #  Basic File Logger
+Scenario:
+A system logs user actions.
+Task:
+● Take user input
+● Store logs in a file
+● Use loop to allow multiple entries
+● Handle file errors using exception handling
+
+
+from datetime import datetime
+
+# Using /tmp/ prevents PermissionError in online compilers
+log_file = "/tmp/user_logs.txt"
+
+print("Basic File Logger (Type 'exit' to stop)")
+
+while True:
+    action = input("Enter user action: ").strip()
+
+    if action.lower() == "exit":
+        print("Logging stopped.")
+        break
+
+    if not action:
+        print("Empty input skipped. Please enter an action.")
+        continue
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"[{timestamp}] {action}\n"
+
+    # Handle file errors using exception handling
+    try:
+        with open(log_file, "a") as file:
+            file.write(log_entry)
+        print("Action logged successfully.")
+
+    except PermissionError:
+        print(f"Error: Permission denied when writing to '{log_file}'.")
+        break
+    except OSError as e:
+        print(f"File error occurred: {e}")
+        break
+
+# Read and display all saved logs at the end
+try:
+    print("\n--- Saved Logs ---")
+    with open(log_file, "r") as file:
+        print(file.read())
+except OSError as e:
+    print(f"Could not read log file: {e}")

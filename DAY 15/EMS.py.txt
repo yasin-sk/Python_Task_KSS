@@ -1,0 +1,67 @@
+ # Employee Management System (OOP + File + Dict)
+Scenario:
+Manage employee data.
+Task:
+● Create a class Employee
+● Store employees in a dictionary
+● Save data to a file
+● Use exception handling for invalid salary input
+● Use loop to display all employees
+
+
+class Employee:
+    def __init__(self, emp_id, name, role, salary):
+        self.emp_id = emp_id
+        self.name = name
+        self.role = role
+        self.salary = salary
+
+    def to_string(self):
+        return f"ID: {self.emp_id} | Name: {self.name} | Role: {self.role} | Salary: ${self.salary:,.2f}"
+
+
+# Dictionary to store Employee objects keyed by emp_id
+employees = {}
+file_path = "/tmp/employees.txt"  # Avoids PermissionError in online compilers
+
+print("--- Employee Management System ---")
+
+while True:
+    emp_id = input("\nEnter Employee ID (or 'done' to finish): ").strip()
+    if emp_id.lower() == "done":
+        break
+
+    name = input("Enter Name: ").strip()
+    role = input("Enter Role: ").strip()
+
+    # Exception handling for invalid salary input
+    try:
+        salary = float(input("Enter Salary: "))
+        if salary < 0:
+            raise ValueError("Salary cannot be negative.")
+    except ValueError as e:
+        print(f"Invalid salary input ({e}). Employee not added. Try again.")
+        continue
+
+    # Create Employee object and store in dictionary
+    emp = Employee(emp_id, name, role, salary)
+    employees[emp_id] = emp
+    print(f"Employee '{name}' added successfully!")
+
+# Save employee data to a file
+try:
+    with open(file_path, "w") as file:
+        file.write("Employee Records:\n")
+        for emp in employees.values():
+            file.write(emp.to_string() + "\n")
+    print(f"\nAll records saved to '{file_path}'.")
+except OSError as e:
+    print(f"\nFile error while saving: {e}")
+
+# Use a loop to display all employees from the dictionary
+print("\n--- All Employees ---")
+if not employees:
+    print("No employee records found.")
+else:
+    for emp_id, emp in employees.items():
+        print(emp.to_string())

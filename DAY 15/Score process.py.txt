@@ -1,0 +1,46 @@
+ # Student Score Processor
+Scenario:
+A teacher stores student names and marks in a list of tuples.
+Task:
+● Convert data into a dictionary
+● Use a loop + condition to find students scoring above 50
+● Use math module to calculate average
+● Store results in a text file
+
+
+import math
+
+# Sample data: list of tuples (Name, Marks)
+student_tuples = [
+    ("Alice", 78),
+    ("Bob", 45),
+    ("Charlie", 88),
+    ("Diana", 42),
+    ("Ethan", 64)
+]
+
+# 1. Convert list of tuples into a dictionary
+student_dict = dict(student_tuples)
+
+# 2. Use a loop + condition to find students scoring above 50
+passed_students = {}
+for name, marks in student_dict.items():
+    if marks > 50:
+        passed_students[name] = marks
+
+# 3. Use math module to calculate the average of all students
+total_marks = math.fsum(student_dict.values())
+average_marks = total_marks / len(student_dict)
+
+# 4. Store results in a writable text file (/tmp/ avoids PermissionError)
+file_path = "/tmp/student_results.txt"
+
+with open(file_path, "w") as file:
+    file.write("Students Scoring Above 50:\n")
+    for name, marks in passed_students.items():
+        file.write(f"- {name}: {marks}\n")
+    file.write(f"\nClass Average Marks: {average_marks:.2f}\n")
+
+# 5. Read and print the file contents to verify
+with open(file_path, "r") as file:
+    print(file.read())

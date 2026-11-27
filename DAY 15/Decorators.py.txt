@@ -1,0 +1,62 @@
+ # Decorator-based Access Control
+Scenario:
+Restrict access to certain functions.
+Task:
+● Create a decorator to check user role
+● Use condition inside decorator
+● Apply decorator to multiple functions
+● Store roles in a dictionary
+
+
+
+from functools import wraps
+
+# 1. Store user roles in a dictionary
+user_roles = {
+    "alice": "admin",
+    "bob": "editor",
+    "charlie": "viewer"
+}
+
+
+# 2. Create a decorator to check user role
+def require_role(required_role):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(username, *args, **kwargs):
+            role = user_roles.get(username.lower())
+
+            # 3. Use condition inside decorator to verify access
+            if role == required_role:
+                return func(username, *args, **kwargs)
+            else:
+                print(
+                    f"Access Denied for '{username}' (Role: {role or 'None'}). "
+                    f"Requires '{required_role}' role to run '{func.__name__}'."
+                )
+        return wrapper
+    return decorator
+
+
+# 4. Apply decorator to multiple functions
+@require_role("admin")
+def delete_database(username):
+    print(f"[SUCCESS] {username} deleted the database.")
+
+
+@require_role("admin")
+def add_user(username, new_user):
+    print(f"[SUCCESS] {username} added new user '{new_user}'.")
+
+
+@require_role("editor")
+def publish_article(username, title):
+    print(f"[SUCCESS] {username} published '{title}'.")
+
+
+# --- Test Cases ---
+delete_database("alice")             # Allowed (admin)
+delete_database("bob")               # Denied (editor != admin)
+add_user("charlie", "david")         # Denied (viewer != admin)
+publish_article("bob", "Python 101") # Allowed (editor)
+publish_article("unknown", "News")   # Denied (None != editor)

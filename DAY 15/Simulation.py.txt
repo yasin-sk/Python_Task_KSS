@@ -1,0 +1,113 @@
+ # Advanced Simulation System
+Scenario:
+Simulate exam results and generate reports.
+Task:
+● Generate random marks using random
+● Store in NumPy array
+● Convert to Pandas DataFrame
+● Use OOP to represent Student
+● Use conditions + loops to assign grades
+● Save report to file
+● Handle errors using try-except
+● Use math module for statistic
+
+
+import random
+import math
+import numpy as np
+import pandas as pd
+
+
+# 1. OOP representation of a Student
+class Student:
+    def __init__(self, student_id, name, marks):
+        self.student_id = student_id
+        self.name = name
+        self.marks = marks
+        self.grade = self.assign_grade()
+
+    # 2. Condition logic to assign grade
+    def assign_grade(self):
+        if self.marks >= 90:
+            return "A+"
+        elif self.marks >= 80:
+            return "A"
+        elif self.marks >= 70:
+            return "B"
+        elif self.marks >= 60:
+            return "C"
+        elif self.marks >= 40:
+            return "D"
+        else:
+            return "F"
+
+    def to_dict(self):
+        return {
+            "ID": self.student_id,
+            "Name": self.name,
+            "Marks": self.marks,
+            "Grade": self.grade
+        }
+
+
+# Optional: Fix seed for repeatable simulation
+random.seed(10)
+
+student_names = ["Alice", "Bob", "Charlie", "Diana", "Ethan", "Fiona", "George", "Hannah"]
+report_file = "/tmp/exam_report.txt"
+
+try:
+    # 3. Generate random marks using random module
+    raw_marks = [random.randint(25, 100) for _ in student_names]
+
+    # 4. Store in NumPy array
+    marks_array = np.array(raw_marks)
+
+    if marks_array.size == 0:
+        raise ValueError("Marks array is empty; cannot run simulation.")
+
+    # 5. Use loop to create Student objects (assigns grades via conditions)
+    students = []
+    for idx, (name, mark) in enumerate(zip(student_names, marks_array), start=101):
+        students.append(Student(f"S{idx}", name, int(mark)))
+
+    # 6. Convert Student records to Pandas DataFrame
+    df = pd.DataFrame([s.to_dict() for s in students])
+
+    # 7. Use math module for statistics (Mean & Standard Deviation)
+    n = len(marks_array)
+    mean_marks = math.fsum(marks_array) / n
+    variance = math.fsum((x - mean_marks) ** 2 for x in marks_array) / n
+    std_dev = math.sqrt(variance)
+    pass_count = sum(1 for s in students if s.grade != "F")
+
+    # Format report text
+    report_lines = [
+        "=========================================",
+        "         EXAM SIMULATION REPORT          ",
+        "=========================================",
+        df.to_string(index=False),
+        "-----------------------------------------",
+        f"Total Students : {n}",
+        f"Passed         : {pass_count} | Failed: {n - pass_count}",
+        f"Class Mean     : {mean_marks:.2f}",
+        f"Std Deviation  : {std_dev:.2f}",
+        f"Highest Score  : {int(np.max(marks_array))}",
+        f"Lowest Score   : {int(np.min(marks_array))}",
+        "========================================="
+    ]
+    report_text = "\n".join(report_lines)
+
+    # 8. Save report to file
+    with open(report_file, "w") as file:
+        file.write(report_text + "\n")
+
+    print(report_text)
+    print(f"\nReport successfully saved to '{report_file}'.")
+
+except ValueError as ve:
+    print(f"[DATA ERROR] {ve}")
+except OSError as oe:
+    print(f"[FILE ERROR] Could not write report to '{report_file}': {oe}")
+except Exception as e:
+    print(f"[UNEXPECTED ERROR] {e}")
