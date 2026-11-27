@@ -1,0 +1,24 @@
+ # Fruit Sales Comparison (Series Addition)
+A shop tracks fruit sales:
+S1 = pd.Series([10, 20, 30], index=["apple", "banana", "cherry"])
+S2 = pd.Series([5, 15, 25], index=["apple", "banana", "cherry"])
+Task:
+● Add both series
+● Find the total sales of all fruits combined
+
+
+import pandas as pd
+
+S1 = pd.Series([10, 20, 30], index=["apple", "banana", "cherry"])
+S2 = pd.Series([5, 15, 25], index=["apple", "banana", "cherry"])
+
+# 1. Add both series (aligns automatically by index)
+combined_sales = S1 + S2
+
+# 2. Find the total sales of all fruits combined
+total_sales = combined_sales.sum()
+
+print("Combined Sales per Fruit:")
+print(combined_sales)
+print("\nTotal Sales:", total_sales)
+

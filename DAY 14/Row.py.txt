@@ -1,0 +1,36 @@
+ # Row Filtering + Aggregation
+A dataset:
+arr = np.array([
+[100, 200],
+[150, 250],
+[80, 120],
+[300, 400]
+])
+Task:
+● Convert to DataFrame with columns "Sales", "Profit"
+● Filter rows where Sales > 100
+● Find average Profit of filtered row
+
+
+import numpy as np
+import pandas as pd
+
+arr = np.array([
+ [100, 200],
+[150, 250],
+[80, 120],
+[300, 400]
+])
+
+# 1. Convert to DataFrame with columns "Sales" and "Profit"
+df = pd.DataFrame(arr, columns=["Sales", "Profit"])
+
+# 2. Filter rows where Sales > 100
+filtered_df = df[df["Sales"] > 100]
+
+# 3. Find average Profit of filtered rows
+avg_profit = filtered_df["Profit"].mean()
+
+print("Filtered DataFrame (Sales > 100):")
+print(filtered_df)
+print("\nAverage Profit:", avg_profit)

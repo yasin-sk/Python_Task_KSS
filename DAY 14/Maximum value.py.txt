@@ -1,0 +1,22 @@
+ # Find Maximum Value
+A dataset:
+arr = np.array([12, 45, 22, 67, 34])
+Task:
+● Convert to Pandas Series
+● Find the maximum value
+
+
+import numpy as np
+import pandas as pd
+
+arr = np.array([12, 45, 22, 67, 34])
+
+# 1. Convert NumPy array to Pandas Series
+S = pd.Series(arr)
+
+# 2. Find the maximum value
+max_val = S.max()  # Alternatively: np.max(S)
+
+print("Series:")
+print(S)
+print("\nMaximum Value:", max_val)

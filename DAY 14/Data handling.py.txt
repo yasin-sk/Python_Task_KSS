@@ -1,0 +1,24 @@
+ # Missing Data Handling (NumPy + Pandas)
+A dataset:
+arr = np.array([10, np.nan, 30, np.nan, 50])
+Task:
+● Convert to Pandas Series
+● Replace NaN values with the mean of the Series
+● Print updated data
+
+
+import numpy as np
+import pandas as pd
+
+arr = np.array([10, np.nan, 30, np.nan, 50])
+
+# 1. Convert NumPy array to Pandas Series
+S = pd.Series(arr)
+
+# 2. Replace NaN values with the mean of the Series (mean of 10, 30, 50 is 30.0)
+S_updated = S.fillna(S.mean())
+
+# 3. Print updated data
+print("Updated Series:")
+print(S_updated)
+

@@ -1,0 +1,25 @@
+ # Missing City Data (NaN Handling)
+A dataset contains city populations:
+cities = {"Delhi": 2000000, "Mumbai": 3000000, "Chennai": 1500000}
+Scenario:
+You want data for:
+["Delhi", "Chennai", "Bangalore"]
+Task:
+● Create a Series with the above index
+● Identify which cities have missing values (NaN)
+
+
+import pandas as pd
+
+cities = {"Delhi": 2000000, "Mumbai": 3000000, "Chennai": 1500000}
+target_index = ["Delhi", "Chennai", "Bangalore"]
+
+# 1. Create a Series using the specified index
+city_series = pd.Series(cities, index=target_index)
+
+# 2. Identify cities with missing values (NaN)
+missing_cities = city_series[city_series.isna()].index.tolist()
+
+print("City Populations Series:")
+print(city_series)
+print("\nCities with missing data:", missing_cities)

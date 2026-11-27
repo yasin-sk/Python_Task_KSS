@@ -1,0 +1,30 @@
+ # Row Selection & Deletion
+A DataFrame:
+df = pd.DataFrame({
+"A": [10, 20, 30],
+"B": [5, 15, 25]
+}, index=["x", "y", "z"])
+Task:
+● Select row with index "y"
+● Delete row "x"
+● Print updated DataFrame
+
+
+import pandas as pd
+
+df = pd.DataFrame({
+    "A": [10, 20, 30],
+    "B": [5, 15, 25]
+}, index=["x", "y", "z"])
+
+# 1. Select row with index "y"
+row_y = df.loc["y"]
+
+# 2. Delete row "x"
+df = df.drop("x")
+
+# 3. Print results
+print("Selected Row 'y':")
+print(row_y)
+print("\nUpdated DataFrame:")
+print(df)
